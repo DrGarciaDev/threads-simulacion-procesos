@@ -10,6 +10,8 @@
  */
 public class Ventana extends javax.swing.JFrame {
     HiloExcel hExcel;
+    HiloWord hWord;
+    HiloPaint hPaint;
     /**
      * Creates new form Ventana
      */
@@ -80,7 +82,16 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         hExcel = new HiloExcel(barExcel);
         Thread hE = new Thread(hExcel, "EXCEL");
+        
+        hWord = new HiloWord(barWord);
+        Thread hW = new Thread(hWord, "WORD");
+        
+        hPaint = new HiloPaint(barPaint);
+        Thread hP = new Thread(hPaint, "PAINT");
+        
         hE.start();
+        hW.start();
+        hP.start();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
