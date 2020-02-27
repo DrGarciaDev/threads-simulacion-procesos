@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JProgressBar;
@@ -8,18 +9,23 @@ import javax.swing.JProgressBar;
 public class HiloWord implements Runnable{
     JProgressBar barWord;
     int i;
+    public static boolean finalizado = false;
     public HiloWord(JProgressBar barWord){
         this.barWord = barWord;
     }
     
     @Override
     public void run() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         for(i=0; i <= 100; i++){
+            if(finalizado == true){
+                finalizado = false;
+                barWord.setForeground(Color.green);
+                break;
+            }
             barWord.setValue(i);
             System.out.println("Proceso "+ Thread.currentThread().getName() +" ejecutandose");
             try {
-                Thread.sleep(200);
+                Thread.sleep(100);
             } catch (InterruptedException ex) {
                 Logger.getLogger(HiloExcel.class.getName()).log(Level.SEVERE, null, ex);
             }

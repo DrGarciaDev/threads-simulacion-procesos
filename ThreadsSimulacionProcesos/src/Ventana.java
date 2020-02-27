@@ -1,3 +1,6 @@
+
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -51,14 +54,17 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         barWord.setName("barWord"); // NOI18N
+        barWord.setStringPainted(true);
         getContentPane().add(barWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
         barWord.getAccessibleContext().setAccessibleName("barWord");
 
         barExcel.setName("barExcel"); // NOI18N
+        barExcel.setStringPainted(true);
         getContentPane().add(barExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
         barExcel.getAccessibleContext().setAccessibleName("barExcel");
 
         barPaint.setName("barPaint"); // NOI18N
+        barPaint.setStringPainted(true);
         getContentPane().add(barPaint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
         barPaint.getAccessibleContext().setAccessibleName("barPaint");
 
@@ -73,6 +79,11 @@ public class Ventana extends javax.swing.JFrame {
 
         jButton2.setText("Detener proceso");
         jButton2.setName("btnDetenerProceso"); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
 
         pack();
@@ -80,6 +91,10 @@ public class Ventana extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        barWord.setForeground(Color.yellow);
+        barExcel.setForeground(Color.yellow);
+        barPaint.setForeground(Color.yellow);
+        
         hExcel = new HiloExcel(barExcel);
         Thread hE = new Thread(hExcel, "EXCEL");
         
@@ -93,6 +108,13 @@ public class Ventana extends javax.swing.JFrame {
         hW.start();
         hP.start();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        HiloExcel.finalizado    = true;
+        HiloWord.finalizado     = true;
+        HiloPaint.finalizado    = true;
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

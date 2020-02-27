@@ -58,6 +58,7 @@
     <Component class="javax.swing.JProgressBar" name="barWord">
       <Properties>
         <Property name="name" type="java.lang.String" value="barWord" noResource="true"/>
+        <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="barWord"/>
@@ -71,6 +72,7 @@
     <Component class="javax.swing.JProgressBar" name="barExcel">
       <Properties>
         <Property name="name" type="java.lang.String" value="barExcel" noResource="true"/>
+        <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="barExcel"/>
@@ -84,6 +86,7 @@
     <Component class="javax.swing.JProgressBar" name="barPaint">
       <Properties>
         <Property name="name" type="java.lang.String" value="barPaint" noResource="true"/>
+        <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="barPaint"/>
@@ -113,6 +116,9 @@
         <Property name="text" type="java.lang.String" value="Detener proceso"/>
         <Property name="name" type="java.lang.String" value="btnDetenerProceso" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="190" y="180" width="-1" height="-1"/>
